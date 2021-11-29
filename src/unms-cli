@@ -523,10 +523,7 @@ run-update() {
   local rollbackDir="${tmpDir}/rollback"
   local installScript="${tmpDir}/unms_install.sh"
   local currentVersion="$(readCurrentVersion)"
-  local installScriptUrl="https://unms.com/v1/install"
-  if [[ "${currentVersion}" =~ ^0 ]]; then
-    installScriptUrl="https://raw.githubusercontent.com/Ubiquiti-App/UNMS/${branch}/install.sh"
-  fi
+  local installScriptUrl="https://raw.githubusercontent.com/devinchristianson/UNMS/${branch}/install.sh"
 
   # create temporary directory for installation files and config backup
   rm -rf "${tmpDir}" || fail "Failed to cleanup temp dir '${tmpDir}'."

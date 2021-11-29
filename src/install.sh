@@ -20,11 +20,7 @@ if [[ " ${args}" =~ ${versionRegex} ]]; then
   version="${BASH_REMATCH[1]}"
 fi
 
-if [ -z "${version}" ] || [[ "${version}" =~ ^0 ]]; then
-  repo="https://raw.githubusercontent.com/Ubiquiti-App/UNMS/${branch}"
-else
-  repo="https://unms.com/v1/${branch}"
-fi
+repo="https://raw.githubusercontent.com/devinchristianson/UNMS/${branch}"
 
 if [ -z "${version}" ]; then
   latestVersionUrl="${repo}/latest-version"
