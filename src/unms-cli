@@ -10,7 +10,6 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 APP_DIR="${SCRIPT_DIR}"
 HOME_DIR="$(readlink -f "${APP_DIR}/..")"
 DATA_DIR="$(readlink -f "${HOME_DIR}/data")"
-DOCKER_COMPOSE_FILE="${APP_DIR}/docker-compose.yml"
 CONF_FILE="${APP_DIR}/unms.conf"
 COMPOSE_PROJECT_NAME="unms"
 
@@ -79,7 +78,7 @@ failWithCommandUsage() {
 }
 
 dockerCompose() {
-  docker-compose -p "${COMPOSE_PROJECT_NAME}" -f "${DOCKER_COMPOSE_FILE}" "$@"
+  docker-compose -p "${COMPOSE_PROJECT_NAME}" --project-directory "${APP_DIR}" "$@"
 }
 
 isRunning() {
